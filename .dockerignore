@@ -3,9 +3,7 @@
 *.yml
 *.md
 *.log
-**/*.conf
 **/*.service
-Dockerfile
 .idea/
 .git/
 .dockerignore
