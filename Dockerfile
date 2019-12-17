@@ -8,6 +8,6 @@ RUN rm -fr html \
  && ln -sfn public html \
  && cp default.conf /etc/nginx/conf.d \
  && . ssl-keygen \
- && openssl dhparam 2048 > tls/dhparam.pem
+ && openssl dhparam 256 > tls/dhparam.pem
 RUN rm -fr /var/lib/apt/lists/*
 EXPOSE 443 80
