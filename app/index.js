@@ -4,7 +4,7 @@ const createError = require('http-errors');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 require('@jobscale/core');
-const { topRoute } = require('./top/route');
+const { route } = require('./route');
 
 const app = express();
 
@@ -63,7 +63,7 @@ class App {
   }
 
   useRoute() {
-    app.use('', topRoute.router);
+    app.use('', route.router);
   }
 
   notfoundHandler() {
