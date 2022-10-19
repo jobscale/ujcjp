@@ -1,14 +1,17 @@
 const { App } = require('./app');
 const { database } = require('./config/database');
 const User = require('./app/models/User');
-const sample = require('./db/list-user.json');
 const { createHash } = require('./app/user');
 
-const sampleUsers = () => Promise.all(sample.users.map(user => {
-  const { login } = user;
-  const hash = user.hash || createHash(`${login}/${'default'}`);
-  return User.create({ login, hash });
-}));
+const sampleUsers = () => {
+  const loader = require;
+  const sample = loader('./db/list-user.json');
+  return Promise.all(sample.users.map(user => {
+    const { login } = user;
+    const hash = user.hash || createHash(`${login}/${'default'}`);
+    return User.create({ login, hash });
+  }));
+};
 
 const syncDB = async () => {
   await database.authenticate();
