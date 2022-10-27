@@ -7,7 +7,7 @@
     'trace',
   ];
 
-  const globalObject = global || window;
+  const globalObject = typeof global !== 'undefined' ? global : window;
   const singleton = (() => {
     if (!globalObject.loggerSingleton) {
       globalObject.loggerSingleton = {
