@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -eu
+
+{
+  docker build . -t tanpo:local \
+  && docker run --rm --name tanpo \
+  --network vnet \
+  -p 3000:3000 \
+  -v $PWD/docs:/home/node/docs \
+  -it tanpo:local
+}
