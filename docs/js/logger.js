@@ -48,7 +48,7 @@
           if (this.level < level) return;
           const logger = this.std[logLevel];
           const LEVEL = `[${logLevel.toUpperCase()}]`;
-          logger(__fname, __line, LEVEL, ...args);
+          logger(__fname, __line, LEVEL, ...args); // eslint-disable-line
         };
         if (mummy[logLevel]) mummy[logLevel] = singleton.native;
       });
