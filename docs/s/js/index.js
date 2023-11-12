@@ -11,26 +11,11 @@ Vue.createApp({
   },
 
   async mounted() {
-    await this.sign();
+    this.signed = true;
     this.$refs.url.focus();
   },
 
   methods: {
-    sign() {
-      return fetch('/auth/sign', {
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ href: '/s' }),
-      })
-      .then(res => {
-        if (res.status === 200) {
-          this.signed = true;
-          return;
-        }
-        document.location.href = '/auth';
-      });
-    },
-
     onSubmit() {
       if (this.url.length < 20) return;
       this.loading = true;
@@ -46,7 +31,7 @@ Vue.createApp({
         return res.json();
       })
       .then(({ id }) => {
-        this.shorten = `https://jsx.jp/s/${id}`;
+        this.shorten = `https://ujc.jp/s/${id}`;
       })
       .catch(e => logger.error(e.message))
       .then(() => setTimeout(() => { this.loading = false; }, 1000));

@@ -4,7 +4,7 @@ const { JSDOM } = require('jsdom');
 const { connection } = require('../db');
 
 const { ENV } = process.env;
-const tableName = `${ENV || 'dev'}-shorten`;
+const tableName = `${ENV || 'dev'}-ujc-shorten`;
 const logger = console;
 
 const showDate = (date, defaultValue) => (date ? dayjs(date).add(9, 'hours').toISOString()

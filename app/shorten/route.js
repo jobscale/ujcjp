@@ -5,9 +5,9 @@ const { controller: authController } = require('../auth/controller');
 const router = Router();
 
 router.get('/:id', controller.redirect);
+router.post('/register', controller.register);
 router.use('', (...args) => authController.verify(...args));
 router.get('', (req, res) => res.send('i am shorten'));
-router.post('/register', controller.register);
 router.post('/find', controller.find);
 router.post('/remove', controller.remove);
 
