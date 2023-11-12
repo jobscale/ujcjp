@@ -6,5 +6,5 @@
   "routes": [
     { "src":"/.*", "dest":"app/index.js" }
   ],
-  "alias": ["jsx.jp"]
+  "alias": ["ujc.jp"]
 }
